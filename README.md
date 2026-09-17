@@ -2,109 +2,135 @@
 
 Sistema de agendamento e gerenciamento desenvolvido para uma barbearia.
 
-A aplicação permite que clientes façam agendamentos online e que o barbeiro acompanhe e gerencie sua agenda através de uma área administrativa.
+O projeto permite que os clientes realizem seus agendamentos online e que o barbeiro tenha uma área administrativa para acompanhar a agenda, clientes, serviços e financeiro.
 
-**Aplicação:** https://saasbarber.onrender.com/
-
-**Tecnologias:** Next.js · TypeScript · React · Supabase · PostgreSQL
+🌐 **Aplicação:** https://saasbarber.onrender.com/
 
 ---
 
 ## Sobre o projeto
 
-O projeto foi criado para substituir parte do controle manual de agendamentos feito através do WhatsApp.
+O Yago Barbershop foi desenvolvido para facilitar a rotina de uma barbearia que fazia boa parte do controle de horários e atendimentos de forma manual.
 
-A ideia era ter um sistema simples para o cliente agendar um horário e, ao mesmo tempo, oferecer ao barbeiro uma área onde ele pudesse acompanhar os atendimentos e administrar os serviços.
+A aplicação foi criada pensando em dois lados:
 
-O sistema foi desenvolvido pensando também na possibilidade de adaptar a aplicação futuramente para outras barbearias ou estabelecimentos que trabalhem com horários.
+* **Cliente:** realizar o agendamento de forma simples pelo celular ou computador.
+* **Barbeiro:** ter uma área para acompanhar e organizar os atendimentos.
+
+Além da parte visual, o projeto possui banco de dados, autenticação, controle de acesso e integrações para deixar o sistema realmente utilizável.
+
+---
+
+## Telas do sistema
+
+### Página principal
+
+Página inicial da barbearia, onde o cliente encontra as informações e pode iniciar um agendamento.
+
+![Página principal](./public/screenshots/Principal.png)
+
+### Agendamento
+
+O cliente escolhe o serviço, data e horário disponível para realizar o agendamento.
+
+![Agendamento](./public/screenshots/Agendamento.png)
+
+### Versão mobile
+
+O sistema foi desenvolvido para funcionar também em dispositivos móveis, facilitando o uso pelo cliente no dia a dia.
+
+![Versão mobile](./public/screenshots/Mobile.jfif)
+
+---
+
+## Área administrativa
+
+O barbeiro possui uma área administrativa protegida por login para gerenciar o funcionamento da barbearia.
+
+### Dashboard
+
+Visão geral dos principais dados e agendamentos.
+
+![Dashboard](./public/screenshots/Dashboard%20Principal.png)
+
+### Agenda
+
+Visualização dos horários e dos atendimentos agendados.
+
+![Agenda](./public/screenshots/Agenda.png)
+
+### Clientes
+
+Gerenciamento dos clientes cadastrados no sistema.
+
+![Clientes](./public/screenshots/Clientes.png)
+
+### Serviços
+
+Cadastro e gerenciamento dos serviços oferecidos pela barbearia, incluindo preço e duração.
+
+![Serviços](./public/screenshots/Servi%C3%A7os.png)
+
+### Horários
+
+Controle dos horários disponíveis para atendimento.
+
+![Horários](./public/screenshots/Hor%C3%A1rios.png)
+
+### Painel financeiro
+
+Acompanhamento do movimento financeiro dos atendimentos.
+
+![Painel financeiro](./public/screenshots/Painel%20Financeiro.png)
+
+### Menu administrativo
+
+Menu lateral utilizado para navegar pelas diferentes áreas do painel.
+
+![Menu administrativo](./public/screenshots/Aba%20Lateral.png)
 
 ---
 
 ## Funcionalidades
 
-### Agendamento
+### Para o cliente
 
+* Agendamento online
 * Escolha do serviço
 * Visualização de preço e duração
-* Seleção de data
-* Horários disponíveis de acordo com a agenda
-* Cadastro do cliente
+* Seleção de data e horário
+* Cadastro de nome e telefone
 * Confirmação do agendamento
 * Integração com WhatsApp
+* Interface adaptada para dispositivos móveis
 
-### Área administrativa
+### Para o barbeiro
 
-* Login protegido
-* Visualização dos agendamentos
-* Controle de serviços
-* Alteração de preços
-* Definição da duração dos serviços
-* Controle dos horários de funcionamento
+* Login administrativo
+* Dashboard
+* Agenda de atendimentos
+* Gerenciamento de clientes
+* Cadastro e edição de serviços
+* Controle de preços
+* Controle da duração dos serviços
+* Configuração de horários
 * Controle da agenda
-* Acompanhamento financeiro
+* Painel financeiro
 
 ---
 
-## Tecnologias utilizadas
+## Tecnologias
 
-**Frontend**
-
-* Next.js
-* React
-* TypeScript
-* CSS
-
-**Backend e banco de dados**
-
-* Supabase
-* PostgreSQL
-* Supabase Auth
-* Row Level Security (RLS)
-
-**Integrações e deploy**
-
-* Resend
-* Render
-
----
-
-## Algumas telas
-
-### Página de agendamento
-
-![Página de agendamento](./public/screenshots/agendamento.png)
-
-### Área administrativa
-
-![Dashboard administrativo](./public/screenshots/dashboard.png)
-
-### Visualização no celular
-
-![Versão mobile](./public/screenshots/mobile.png)
-
----
-
-## Estrutura do projeto
-
-```text
-app/
-├── admin/
-├── api/
-└── ...
-
-config/
-└── establishment.ts
-
-lib/
-├── admin.ts
-├── supabase-server.ts
-└── supabase.ts
-
-public/
-
-supabase/
-└── schema.sql
-```
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Supabase**
+* **PostgreSQL**
+* **Supabase Auth**
+* **Row Level Security (RLS)**
+* **Resend**
+* **WhatsApp**
+* **Render**
 
 ---
 
@@ -112,7 +138,7 @@ supabase/
 
 O projeto utiliza PostgreSQL através do Supabase.
 
-Entre as principais informações armazenadas estão:
+O banco é responsável por armazenar informações como:
 
 * Clientes
 * Serviços
@@ -120,7 +146,7 @@ Entre as principais informações armazenadas estão:
 * Horários
 * Configurações da barbearia
 
-O acesso aos dados é protegido utilizando Row Level Security (RLS).
+O acesso aos dados é controlado através de autenticação e Row Level Security (RLS).
 
 A estrutura inicial do banco está disponível em:
 
@@ -132,16 +158,16 @@ supabase/schema.sql
 
 ## Rodando localmente
 
-Clone o projeto:
+Clone o repositório:
 
 ```bash
-git clone https://github.com/gustavoguga18/saasbarber.git
+git clone https://github.com/gustavoguga18/yago-barbershop.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd saasbarber
+cd yago-barbershop
 ```
 
 Instale as dependências:
@@ -150,20 +176,20 @@ Instale as dependências:
 npm install
 ```
 
-Crie um arquivo `.env.local` com as variáveis do Supabase:
+Crie um arquivo `.env.local`:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
-Execute o projeto:
+Depois execute:
 
 ```bash
 npm run dev
 ```
 
-Depois acesse:
+A aplicação ficará disponível em:
 
 ```text
 http://localhost:3000
@@ -173,21 +199,19 @@ http://localhost:3000
 
 ## Deploy
 
-A aplicação pode ser publicada no Render.
-
-As variáveis de ambiente devem ser configuradas nas configurações do serviço antes do deploy.
+O projeto está publicado no Render e utiliza variáveis de ambiente para as configurações necessárias em produção.
 
 ---
 
 ## Próximos passos
 
-Algumas melhorias que pretendo continuar implementando:
+O projeto continua em desenvolvimento e algumas ideias para futuras versões são:
 
-* Evolução do PWA
-* Melhorias na experiência mobile
-* Mais opções de notificações
-* Relatórios financeiros
-* Novas configurações para adaptar o sistema a outros estabelecimentos
+* Evoluir a experiência como PWA
+* Melhorar a experiência mobile
+* Adicionar novas opções de notificações
+* Evoluir os relatórios financeiros
+* Facilitar ainda mais a adaptação para outros estabelecimentos
 
 ---
 
@@ -195,6 +219,6 @@ Algumas melhorias que pretendo continuar implementando:
 
 **Gustavo Barbosa**
 
-Projeto desenvolvido como parte do meu aprendizado e prática em desenvolvimento web full-stack.
+Projeto desenvolvido para colocar em prática conhecimentos de desenvolvimento web full-stack, banco de dados, autenticação, APIs e deploy.
 
 [GitHub](https://github.com/gustavoguga18)
